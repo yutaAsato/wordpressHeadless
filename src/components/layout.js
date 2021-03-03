@@ -24,17 +24,6 @@ const Layout = ({ children }) => {
   //useDarkMode
   const [theme, toggleTheme] = useDarkMode()
 
-  //useStaticQuery
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalWrapper>

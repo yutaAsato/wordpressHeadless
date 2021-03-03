@@ -48,8 +48,6 @@ export { HomePage }
 
 //SectionOne
 function SectionOne() {
-  console.log(longBorder)
-
   return (
     <motion.div
       css={{ height: "100%" }}
