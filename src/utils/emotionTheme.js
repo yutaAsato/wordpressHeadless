@@ -3,9 +3,9 @@ import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 
 const lightTheme = {
-  body: "#a3a39a",
-  //   body:
-  //     "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)",
+  //   body: "#a3a39a",
+  //   body: "#b6a5b8",
+  body: "linear-gradient(315deg, #d8dede 0%, #e5bdf6 74%)",
 
   text: "#363537",
   toggleBorder: "#FFF",
