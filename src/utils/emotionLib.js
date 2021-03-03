@@ -13,7 +13,7 @@ import { motion } from "framer-motion"
 //GlobalWrapper
 const GlobalWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   background: ${props => props.theme.body};
   color: ${props => props.theme.text};
   font-family: "Times New Roman", Times, serif;
@@ -83,7 +83,6 @@ const ToggleContainer = styled.button`
 //borderLines
 const BorderLine = styled(motion.span)`
   border-bottom: black 2px solid;
-  width: 1500px;
   height: 30px;
   position: absolute;
 `
@@ -97,26 +96,6 @@ const HomeTextBlock = styled(motion.div)`
   padding: 10px 10px 10px 0px;
 `
 
-// const Avatar = styled.img`
-//   flex-grow: 0;
-//   flex-shrink: 0;
-//   flex-basis: 96px;
-//   width: 96px;
-//   height: 96px;
-//   margin: 0;
-// `
-// const Description = styled.div`
-//   flex: 1;
-//   margin-left: 18px;
-//   padding: 12px;
-// `
-// const Username = styled.h2`
-//   margin: 0 0 12px 0;
-//   padding: 0;
-// `
-// const Excerpt = styled.p`
-//   margin: 0;
-// `
 // Using css prop provides a concise and flexible API to style the components. //
 const underline = css`
   text-decoration: underline;

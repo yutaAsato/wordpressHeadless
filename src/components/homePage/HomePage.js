@@ -35,7 +35,7 @@ import {
 function HomePage() {
   return (
     <div css={{ display: "flex", flexDirection: "column" }}>
-      <div css={{ paddingBottom: "300px" }}>
+      <div css={{ paddingBottom: "200px" }}>
         <SectionOne />
       </div>
 
@@ -50,57 +50,70 @@ export { HomePage }
 function SectionOne() {
   return (
     <motion.div
-      css={{ height: "100%" }}
+      css={{
+        width: "100%",
+        height: "100%",
+        display: "grid",
+        gridTemplateRows: "repeat(2, 1fr, 2fr, minMax(300px ,1fr))",
+      }}
       animate="animate"
       initial="initial"
       variants={stagger}
     >
-      <div css={{ paddingBottom: "10px" }}>
-        <BorderLine
-          css={{ width: "1690px", borderBottom: "white solid 2px" }}
-          initial={{ width: "0rem", opacity: 0 }}
-          animate={{ width: "94rem", opacity: 1 }}
-          transition={{ duration: 1.7, ease: "easeInOut" }}
-        />
+      <div>
+        <div css={{ paddingBottom: "10px", position: "relative" }}>
+          <BorderLine
+            css={{ borderBottom: "white solid 2px" }}
+            initial={{ width: "0rem", opacity: 0 }}
+            animate={{ width: "100%", opacity: 1 }}
+            transition={{ duration: 1.7, ease: "easeInOut" }}
+          />
+        </div>
+
+        <motion.div css={{ display: "flex" }} variants={stagger}>
+          <HomeTextWraper variants={stagger}>
+            <HomeTextBlock>
+              <BorderLine
+                css={{ width: "150px", borderBottom: "2px solid black" }}
+                variants={shortBorder}
+              />
+              <motion.h4 css={{ color: "white" }} variants={leftBlockH4}>
+                LOREN IPUS
+              </motion.h4>
+            </HomeTextBlock>
+            <HomeTextBlock>
+              <BorderLine
+                css={{ width: "150px", borderBottom: "2px solid black" }}
+                variants={shortBorder}
+              />
+              <motion.h4 variants={leftBlockH4}>NEQUE PORRO </motion.h4>
+            </HomeTextBlock>
+          </HomeTextWraper>
+
+          <HomeTextWraper variants={stagger}>
+            <HomeTextBlock>
+              <BorderLine variants={longBorder} />
+              <motion.h4 variants={rightBlockH4} css={{ color: " white" }}>
+                LOREN IPUS
+              </motion.h4>
+            </HomeTextBlock>
+            <HomeTextBlock>
+              <BorderLine variants={longBorder} />
+              <motion.h4 variants={rightBlockH4}>NEQUE PORRO </motion.h4>
+            </HomeTextBlock>
+          </HomeTextWraper>
+        </motion.div>
       </div>
 
-      <motion.div css={{ display: "flex" }} variants={stagger}>
-        <HomeTextWraper variants={stagger}>
-          <HomeTextBlock>
-            <BorderLine
-              css={{ width: "150px", borderBottom: "2px solid black" }}
-              variants={shortBorder}
-            />
-            <motion.h4 css={{ color: "white" }} variants={leftBlockH4}>
-              LOREN IPUS
-            </motion.h4>
-          </HomeTextBlock>
-          <HomeTextBlock>
-            <BorderLine
-              css={{ width: "150px", borderBottom: "2px solid black" }}
-              variants={shortBorder}
-            />
-            <motion.h4 variants={leftBlockH4}>NEQUE PORRO </motion.h4>
-          </HomeTextBlock>
-        </HomeTextWraper>
-
-        <HomeTextWraper variants={stagger}>
-          <HomeTextBlock>
-            <BorderLine variants={longBorder} />
-            <motion.h4 variants={rightBlockH4} css={{ color: " white" }}>
-              LOREN IPUS
-            </motion.h4>
-          </HomeTextBlock>
-          <HomeTextBlock>
-            <BorderLine variants={longBorder} />
-            <motion.h4 variants={rightBlockH4}>NEQUE PORRO </motion.h4>
-          </HomeTextBlock>
-        </HomeTextWraper>
-      </motion.div>
-
-      <div css={{ display: "flex" }}>
+      <div
+        css={{
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+        }}
+      >
         <motion.div
-          css={{ width: "1000px" }}
+          css={{ maxWidth: "900px" }}
           initial={{ y: 300, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
@@ -119,33 +132,35 @@ function SectionOne() {
         <div
           css={{
             paddingLeft: "20px",
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            justifyContent: "space-between",
           }}
         >
-          <motion.div
-            initial={{ x: 600, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.2, ease: "easeInOut" }}
-          >
-            <h3> --> TOKYO BLOGS</h3>
-          </motion.div>
-          <motion.div
-            initial={{ x: 500, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1.6, delay: 0.4, ease: "easeInOut" }}
-          >
-            <h3>Claire Bower</h3>
-          </motion.div>
+          <div>
+            <motion.div
+              initial={{ x: 600, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.2, ease: "easeInOut" }}
+            >
+              <h3> --> TOKYO BLOGS</h3>
+            </motion.div>
+            <motion.div
+              initial={{ x: 500, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1.6, delay: 0.4, ease: "easeInOut" }}
+            >
+              <h3>Claire Bower</h3>
+            </motion.div>
+          </div>
+
           <div
             css={{
-              maxWidth: "600px",
-              paddingTop: "300px",
-              paddingLeft: "200px",
+              alignSelf: "flex-end",
             }}
           >
             <motion.h4
-              css={{ lineHeight: "1.4rem" }}
+              css={{ lineHeight: "1.1rem", maxWidth: "500px" }}
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.2, delay: 1.7, ease: "easeInOut" }}
@@ -167,12 +182,10 @@ function SectionOne() {
 //Sectiontwo
 function SectionTwo() {
   return (
-    <div css={{ width: "1800px" }}>
+    <div css={{ width: "100%", height: "100%" }}>
       <div
         css={{
           position: "relative",
-          width: "1800px",
-          height: "100vh",
           zIndex: 1,
         }}
       >
@@ -183,7 +196,7 @@ function SectionTwo() {
             justifyContent: "space-between",
           }}
         >
-          <div css={{ maxWidth: "600px", position: "relative" }}>
+          <div css={{ position: "relative" }}>
             <StaticImage
               src="../../images/university-in-tokyo.jpg"
               alt="writer"
@@ -203,10 +216,11 @@ function SectionTwo() {
             >
               <span
                 css={props => ({
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
                   position: "absolute",
                   backgroundColor: props.text,
-                  width: "600px",
-                  height: "337.5px",
                   top: 0,
                   zIndex: 3,
                 })}
@@ -214,7 +228,7 @@ function SectionTwo() {
             </FadeWhenVisible>
           </div>
 
-          <div css={{ maxWidth: "1000px" }}>
+          <div css={{ maxWidth: "500px" }}>
             <p>
               Nulla nec consectetur metus, at pharetra nunc. Ut quis nunc eu
               lorem auctor interdum id consectetur turpis. Morbi in finibus
@@ -238,7 +252,7 @@ function SectionTwo() {
             justifyContent: "space-between",
           }}
         >
-          <div css={{ maxWidth: "600px", position: "relative" }}>
+          <div css={{ position: "relative", maxWidth: "728px" }}>
             <StaticImage
               src="../../images/vintageWriters.jpg"
               alt="writer"
@@ -258,17 +272,18 @@ function SectionTwo() {
             >
               <span
                 css={props => ({
+                  display: "block",
                   position: "absolute",
                   backgroundColor: props.text,
-                  width: "600px",
-                  height: "337.5px",
+                  width: "100%",
+                  height: "100%",
                   top: 0,
                   zIndex: 3,
                 })}
               ></span>
             </FadeWhenVisible>
           </div>
-          <div css={{ maxWidth: "1000px" }}>
+          <div css={{ maxWidth: "500px" }}>
             <p>
               Nulla nec consectetur metus, at pharetra nunc. Ut quis nunc eu
               lorem auctor interdum id consectetur turpis. Morbi in finibus

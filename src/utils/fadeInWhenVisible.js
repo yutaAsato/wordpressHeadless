@@ -16,6 +16,7 @@ function FadeWhenVisible({ children, custom }) {
 
   return (
     <motion.div
+      style={{ width: "100%", height: "100%", display: "block" }}
       ref={ref}
       animate={controls}
       initial="hidden"
