@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: ` http://tokyoblogs.com/graphql`,
+        url: ` http://www.swq.mrk.mybluehost.me/graphql`,
       },
     },
     `gatsby-plugin-emotion`,
