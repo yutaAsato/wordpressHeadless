@@ -4,8 +4,7 @@ import { css } from "@emotion/react"
 
 const lightTheme = {
   //   body: "#a3a39a",
-  //   body: "#b6a5b8",
-  body: "linear-gradient(315deg, #d8dede 0%, #e5bdf6 74%)",
+  body: "#b6a5b8",
 
   text: "#363537",
   toggleBorder: "#FFF",
