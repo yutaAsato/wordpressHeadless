@@ -5,6 +5,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
 
 function PageTemplate({ data }) {
+  console.log(data)
+
   return (
     <Layout>
       <SEO title={data.wpPage.title} description={data.wpPage.excerpt} />

@@ -54,7 +54,7 @@ const Header = ({ theme, toggleTheme }) => {
     <header
       css={props => ({
         maxHeight: "120px",
-        // marginBottom: `1.45rem`,
+        width: "100%",
       })}
     >
       <motion.div
@@ -64,9 +64,8 @@ const Header = ({ theme, toggleTheme }) => {
           margin: `0 auto`,
           maxWidth: `1800px`,
           padding: `1.45rem 1.0875rem`,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          display: "grid",
+          gridTemplateColumns: "2fr 2fr 1fr",
         }}
       >
         <motion.div>
@@ -102,27 +101,29 @@ const Header = ({ theme, toggleTheme }) => {
           </motion.h3>
         </motion.div>
 
-        <motion.ul
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3.9, ease: "easeInOut" }}
-          style={{
-            listStyle: "none",
-            display: "flex",
-            margin: 0,
-            paddingLeft: "600px",
-          }}
-        >
-          <motion.li style={{ margin: "0 10px" }}>
-            <CustomLink to={`/blogs`}>Blogs</CustomLink>
-          </motion.li>
-          {data.allWpMenu.nodes[0].menuItems.nodes.map(item => (
-            <motion.li key={item.id} style={{ margin: "0 10px" }}>
-              <CustomLink to={`${item.url}`}>{item.label}</CustomLink>
+        <div css={{ justifySelf: "end" }}>
+          <motion.ul
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3.9, ease: "easeInOut" }}
+            style={{
+              listStyle: "none",
+              display: "flex",
+              margin: 0,
+            }}
+          >
+            <motion.li style={{ margin: "0 10px" }}>
+              <CustomLink to={`/blogs`}>Blogs</CustomLink>
             </motion.li>
-          ))}
-        </motion.ul>
-        <div>
+            {data.allWpMenu.nodes[0].menuItems.nodes.map(item => (
+              <motion.li key={item.id} style={{ margin: "0 10px" }}>
+                <CustomLink to={`${item.url}`}>{item.label}</CustomLink>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+
+        <div css={{ justifySelf: "end" }}>
           <Toggle theme={theme} toggleTheme={toggleTheme} />
         </div>
       </motion.div>

@@ -14,8 +14,6 @@ import { ToggleContainer } from "../../utils/emotionLib"
 //=============================================================
 
 function Toggle({ theme, toggleTheme }) {
-  console.log(theme)
-
   const isLight = theme === "light"
   return (
     <ToggleContainer onClick={toggleTheme} lightTheme={isLight}>

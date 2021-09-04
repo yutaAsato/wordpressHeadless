@@ -30,12 +30,21 @@ import {
   leftBlockH4,
 } from "../../utils/framerAnimations"
 
+const breakpoints = [576, 768, 992, 1200]
+
+const mq = breakpoints.map(
+  bp => `@media (max-width: ${bp}px)`
+)
+
 //==============================================
 
 function HomePage() {
   return (
-    <div css={{ display: "flex", flexDirection: "column" }}>
-      <div css={{ paddingBottom: "200px" }}>
+    <div css={{ display: "flex", flexDirection: "column", }}>
+      <div css={{ paddingBottom: "200px" ,   
+        [mq[0]]: {
+        paddingBottom: '50px'
+        },}}>
         <SectionOne />
       </div>
 
@@ -48,13 +57,15 @@ export { HomePage }
 
 //SectionOne
 function SectionOne() {
+
+
   return (
     <motion.div
       css={{
         width: "100%",
         height: "100%",
         display: "grid",
-        gridTemplateRows: "repeat(2, 1fr, 2fr, minMax(300px ,1fr))",
+        gridTemplateRows: "repeat(2, 1fr, 2fr, minMax(300px ,1fr))",    
       }}
       animate="animate"
       initial="initial"
@@ -71,37 +82,53 @@ function SectionOne() {
         </div>
 
         <motion.div css={{ display: "flex" }} variants={stagger}>
-          <HomeTextWraper variants={stagger}>
-            <HomeTextBlock>
-              <BorderLine
-                css={{ width: "150px", borderBottom: "2px solid black" }}
-                variants={shortBorder}
-              />
-              <motion.h4 css={{ color: "white" }} variants={leftBlockH4}>
-                LOREN IPUS
-              </motion.h4>
-            </HomeTextBlock>
-            <HomeTextBlock>
-              <BorderLine
-                css={{ width: "150px", borderBottom: "2px solid black" }}
-                variants={shortBorder}
-              />
-              <motion.h4 variants={leftBlockH4}>NEQUE PORRO </motion.h4>
-            </HomeTextBlock>
-          </HomeTextWraper>
+          <div
+            css={{
+              width: "100%",
+              display: "grid",
+              gridTemplateColumns: "1fr 3fr",
+            }}
+          >
+            <HomeTextWraper variants={stagger}>
+              <HomeTextBlock>
+                <BorderLine
+                  css={{ borderBottom: "2px solid black" }}
+                  variants={shortBorder}
+                />
+                <motion.h4 css={{ color: "white",  [mq[0]]: {
+        fontSize: '13px'
+        } }} variants={leftBlockH4}>
+                  MY
+                </motion.h4>
+              </HomeTextBlock>
+              <HomeTextBlock>
+                <BorderLine
+                  css={{ borderBottom: "2px solid black" }}
+                  variants={shortBorder}
+                />
+                <motion.h4 variants={leftBlockH4} css={{ [mq[0]]: {
+        fontSize: '13px'
+        }  }}>LOVE </motion.h4>
+              </HomeTextBlock>
+            </HomeTextWraper>
 
-          <HomeTextWraper variants={stagger}>
-            <HomeTextBlock>
-              <BorderLine variants={longBorder} />
-              <motion.h4 variants={rightBlockH4} css={{ color: " white" }}>
-                LOREN IPUS
-              </motion.h4>
-            </HomeTextBlock>
-            <HomeTextBlock>
-              <BorderLine variants={longBorder} />
-              <motion.h4 variants={rightBlockH4}>NEQUE PORRO </motion.h4>
-            </HomeTextBlock>
-          </HomeTextWraper>
+            <HomeTextWraper variants={stagger}>
+              <HomeTextBlock>
+                <BorderLine variants={longBorder} />
+                <motion.h4 variants={rightBlockH4} css={{ color: " white",[mq[0]]: {
+        fontSize: '13px'
+        }  }}>
+                 CATS
+                </motion.h4>
+              </HomeTextBlock>
+              <HomeTextBlock>
+                <BorderLine variants={longBorder} />
+                <motion.h4 variants={rightBlockH4} css={{ [mq[0]]: {
+        fontSize: '13px'
+        }  }}>ICE CREAM </motion.h4>
+              </HomeTextBlock>
+            </HomeTextWraper>
+          </div>
         </motion.div>
       </div>
 
@@ -110,6 +137,9 @@ function SectionOne() {
           width: "100%",
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
+          [mq[0]]: {
+          display: 'contents'
+        },
         }}
       >
         <motion.div
@@ -160,17 +190,14 @@ function SectionOne() {
             }}
           >
             <motion.h4
-              css={{ lineHeight: "1.1rem", maxWidth: "500px" }}
+              css={{ lineHeight: "1.1rem", maxWidth: "500px",[mq[0]]: {
+        fontSize: '13px'
+        }  }}
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.2, delay: 1.7, ease: "easeInOut" }}
             >
-              Donec quam libero, ullamcorper eget rhoncus a, porttitor sed odio.
-              In eu tristique eros. Curabitur eget lacinia metus. Cras dictum
-              lectus in leo sodales tempor. Vivamus suscipit congue cursus.
-              Vivamus tincidunt accumsan elit eget laoreet. Pellentesque
-              pulvinar rutrum risus et cursus. Nam lectus diam, sollicitudin non
-              neque vitae, efficitur faucibus quam
+          “Where the Internet is about availability of information, blogging is about making information creation available to anyone.”
             </motion.h4>
           </div>
         </div>
@@ -194,6 +221,9 @@ function SectionTwo() {
             display: "flex",
             paddingBottom: "10rem",
             justifyContent: "space-between",
+            [mq[0]]: {
+          display: 'contents'
+        },
           }}
         >
           <div css={{ position: "relative" }}>
@@ -228,7 +258,9 @@ function SectionTwo() {
             </FadeWhenVisible>
           </div>
 
-          <div css={{ maxWidth: "500px" }}>
+          <div css={{ maxWidth: "500px",[mq[0]]: {
+        fontSize: '13px'
+        } }}>
             <p>
               Nulla nec consectetur metus, at pharetra nunc. Ut quis nunc eu
               lorem auctor interdum id consectetur turpis. Morbi in finibus
@@ -250,6 +282,9 @@ function SectionTwo() {
             paddingBottom: "10rem",
             flexDirection: "row-reverse",
             justifyContent: "space-between",
+            [mq[0]]: {
+          display: 'contents'
+        },
           }}
         >
           <div css={{ position: "relative", maxWidth: "728px" }}>
@@ -283,7 +318,9 @@ function SectionTwo() {
               ></span>
             </FadeWhenVisible>
           </div>
-          <div css={{ maxWidth: "500px" }}>
+          <div css={{ maxWidth: "500px",[mq[0]]: {
+        fontSize: '13px'
+        }  }}>
             <p>
               Nulla nec consectetur metus, at pharetra nunc. Ut quis nunc eu
               lorem auctor interdum id consectetur turpis. Morbi in finibus
