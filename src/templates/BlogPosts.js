@@ -1,8 +1,15 @@
 import React from "react"
 import Layout from "../components/layout"
+import { jsx, Global, css, ThemeProvider, useTheme } from "@emotion/react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
+
+const breakpoints = [576, 768, 992, 1200]
+
+const mq = breakpoints.map(
+  bp => `@media (max-width: ${bp}px)`
+)
 
 function BlogPostTemplate({ data }) {
   return (
@@ -12,7 +19,8 @@ function BlogPostTemplate({ data }) {
       <p>
         Written by {data.wpPost.author.node.name} {data.wpPost.date}
       </p>
-      <GatsbyImage
+      <div >
+              <GatsbyImage
         image={
           data.wpPost.featuredImage.node.localFile.childImageSharp
             .gatsbyImageData
@@ -23,7 +31,10 @@ function BlogPostTemplate({ data }) {
         //     : null
         // }
       />
-      <div dangerouslySetInnerHTML={{ __html: data.wpPost.content }} />
+            <div dangerouslySetInnerHTML={{ __html: data.wpPost.content }} />
+
+      </div>
+
     </Layout>
   )
 }

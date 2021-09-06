@@ -20,6 +20,12 @@ import Toggle from "./toggle/Toggle"
 //styled
 import { CustomLink, Logo, ToggleContainer } from "../utils/emotionLib"
 
+const breakpoints = [576, 768, 992, 1200]
+
+const mq = breakpoints.map(
+  bp => `@media (max-width: ${bp}px)`
+)
+
 //=============================================
 
 const Header = ({ theme, toggleTheme }) => {
@@ -60,12 +66,15 @@ const Header = ({ theme, toggleTheme }) => {
       <motion.div
         initial="initial"
         animate="animate"
-        style={{
-          margin: `0 auto`,
+        css={{
+          margin: '0 auto',
           maxWidth: `1800px`,
-          padding: `1.45rem 1.0875rem`,
+          padding: '1.45rem 1.0875rem',
           display: "grid",
           gridTemplateColumns: "2fr 2fr 1fr",
+          [mq[0]]: {
+        display: 'block',
+        }
         }}
       >
         <motion.div>
@@ -123,9 +132,11 @@ const Header = ({ theme, toggleTheme }) => {
           </motion.ul>
         </div>
 
-        <div css={{ justifySelf: "end" }}>
+        <motion.div initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3.1, ease: "easeInOut" }} css={{ justifySelf: "end" }}>
           <Toggle theme={theme} toggleTheme={toggleTheme} />
-        </div>
+        </motion.div>
       </motion.div>
     </header>
   )
