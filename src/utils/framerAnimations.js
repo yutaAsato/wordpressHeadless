@@ -18,7 +18,7 @@ export const stagger = {
 export const longBorder = {
   initial: { width: "0rem", opacity: 0 },
   animate: {
-    width: "82%",
+    width: "100%",
     opacity: 1,
     transition: { duration: 1.7, ease: "easeInOut" },
   },
@@ -37,7 +37,7 @@ export const rightBlockH4 = {
 export const shortBorder = {
   initial: { width: "0rem", opacity: 0 },
   animate: {
-    width: "9.8%",
+    width: "90%",
     opacity: 1,
     transition: { duration: 1.7, ease: "easeInOut" },
   },

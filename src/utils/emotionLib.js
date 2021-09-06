@@ -89,10 +89,13 @@ const BorderLine = styled(motion.span)`
 
 //HomeTextWrapper
 const HomeTextWraper = styled(motion.div)`
-  padding: 20px 50px 50px 0px;
+  width: "100%";
+  padding: 20px 0px 50px 0px;
 `
 //HomeTextBlock
 const HomeTextBlock = styled(motion.div)`
+  width: "100%";
+  position: relative;
   padding: 10px 10px 10px 0px;
 `
 
